@@ -1,0 +1,74 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="text-center">
+                <h3>Products</h3>
+                <button [routerLink]="'/add-product'" class="btn btn-remove btn-primary mb-3">Add New</button>
+            </div>
+            <div class="input-space" style="width: fit-content !important;">
+                <select (change)="onCategoryChange($event)">
+                    <option value="" disabled>Select Category</option>
+                    <option *ngFor="let category of productCategories" value="{{category.id}}" > {{category.categoryName}} </option>   
+                </select>
+            </div>
+            <table *ngIf="products.length > 0" class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="product-name-col">Name</th>
+                        <th class="price-col">Unit Price</th>
+                        <th class="product-action-col">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td class="align-middle product-name-col">{{ product.name}}</td>
+                        <td class="align-middle price-col">{{ product.unitPrice}}</td>
+                        <td class="align-middle product-action-col">
+                            <button class="btn-remove btn-edit" [routerLink]="'/edit-product/' + product.id">
+                                Edit
+                            </button>
+                            <button class="btn-remove btn-delete" (click)="deleteProduct(product.id)">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                No products found.
+            </div>
+
+            <!-- begin footer -->
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-9" style="padding-left: 30%;">
+                                <ngb-pagination [(page)]="thePageNumber"
+                                                [pageSize]="thePageSize"
+                                                [collectionSize]="theTotalElements"
+                                                [maxSize]="5"
+                                                [boundaryLinks]="true"
+                                                (pageChange)="listProducts()">
+
+                                </ngb-pagination>
+                            </div>
+                            <div class="col-md-3 mt-2" style="text-align: right;">
+                                <span class="mr-2">Page Size </span>
+                                <select style="border-radius: 5px;" #myPageSelect (change)="updatePageSize(myPageSelect.value)">
+                                    <option>8</option>
+                                    <option selected="true">12</option>
+                                    <option>16</option>
+                                    <option>20</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end footer -->
+        </div>
+    </div>
+</div>

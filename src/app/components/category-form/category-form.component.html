@@ -1,0 +1,39 @@
+<div class="main-content page-m">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+            <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+                <h3 class="text-center">Category Form</h3>
+                <div class="row">
+                    <div class="col-md-2"><label>Name</label></div>
+                    <div class="col-md-9">
+                        <div class="input-space">
+                            <input formControlName="name" type="text">
+                            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert alert-danger mt-1">
+                                <div *ngIf="name?.errors?.['required']">
+                                    Category Name is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="text-center">
+                    <div>
+                        <button type="submit" [disabled]="categoryForm.invalid" class="btn btn-remove btn-primary">
+                            <span *ngIf="!isLoading">{{buttonText}}</span>
+                            <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            <span *ngIf="isLoading" class="sr-only">Loading...</span>
+                        </button>
+                    </div>
+                    <div>
+                        <h5 class="text-success text-center mt-1" *ngIf="successMessage">{{successMessage}}</h5>
+                        <h5 class="text-danger text-center mt-1" *ngIf="errorMessage">{{errorMessage}}</h5>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="text-center">
+                <h3>Categories</h3>
+                <button [routerLink]="'/add-category'" class="btn btn-remove btn-primary mb-3">Add New</button>
+            </div>
+            <table *ngIf="productCategories.length > 0" class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="name-col">Name</th>
+                        <th class="action-col">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let category of productCategories">
+                        <td class="align-middle name-col">{{ category.categoryName}}</td>
+                        <td class="action-col">
+                            <button class="btn-remove btn-edit" [routerLink]="'/edit-category/' + category.id">
+                                Edit
+                            </button>
+                            <button class="btn-remove btn-delete" (click)="deleteCategory(category.id)">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div *ngIf="productCategories?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                No categories found.
+            </div>
+        </div>
+    </div>
+</div>
