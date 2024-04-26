@@ -10,7 +10,7 @@ Product display:
 ![image](https://github.com/Wadoo69/DealZ-frontend/assets/135997896/ad297769-2f7c-4b45-b736-d7eb30004557)
 - Display by category
 
-![image](https://github.com/Wadoo69/DealZ-frontend/assets/135997896/56ff51e6-5793-43eb-bc40-2d8645a731da)
+ ![image](https://github.com/Wadoo69/DealZ-frontend/assets/135997896/56ff51e6-5793-43eb-bc40-2d8645a731da)
 Admin panel:
 - Panel for products
 ![image](https://github.com/Wadoo69/DealZ-frontend/assets/135997896/07a7eea0-63ca-481a-aa53-5ce085c72509)
