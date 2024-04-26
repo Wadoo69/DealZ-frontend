@@ -1,6 +1,8 @@
-# AngularEcommerce
+# Dealz Ecommerce 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.7.
+![image](https://github.com/Wadoo69/DealZ-frontend/assets/135997896/f3ec07b7-ab3b-4421-bb41-f38c756617ed)
+
 
 ## Development server
 
